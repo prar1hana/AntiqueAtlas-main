@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'About/style.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'LandingPage/style.css' %}"> -->
+</head>
+<body>
+
+<div class="navbar">
+  <div class="icon">
+      <h2 class="logo"><img src="{% static '/LandingPage/Images/logo.png' %}"></h2>
+  </div>
+  <div class="menu">
+      <ul>
+          <li><a href="/">HOME</a></li>
+          <li><a href="/about">ABOUT</a></li>
+          <li><a href="/admin">ADMIN</a></li>
+          <li><a href="/Contact Us">CONTACT</a></li>
+      </ul>
+  </div>
+
+  <div class="search">
+     <!-- <input class="srch" type="search" name="" placeholder="Type To Search"> -->
+     <a href="/search"> <button class="btn">Browse..</button></a>
+</div>
+</div> 
+
+<h2 class="info1">About Us</h2>
+<p class="info2">This website was build by the PowerNappers - Naila, Nandana, Prarthana, Vaishnavi</p>
+
+<div class="container">
+    <img src="{% static 'About/powerNappers.webp' %}" alt="Image description" class="centered-image">
+</div>
+
+<footer>
+  <div class="footer-content">
+      <p>Copyright © 2024 PowerNappers. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{monument.Name}}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cantora+One&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'MonumentPg/style.css' %}">
+        <script defer src="{% static 'MonumentPg/script.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
+    </head>
+    <body>
+        <div class="main">
+            <div class="navbar">
+                <div class="icon">
+                    <h2 class="logo"><img src="../static/LandingPage/Images/logo.png" >
+                    </div>
+               
+                <div class="search">
+                    <input class="srch" type="search" name="" placeholder="Type To Search">
+                    <a href="\search"> <button class="btn">Search</button></a>
+                </div>
+    
+                <div class="menu">
+                    <ul>
+                        <li><a href="/">HOME</a></li>
+                        <li><a href="/about">ABOUT</a></li>
+                        <li><a href="/admin">ADMIN</a></li>
+                        <li><a href="/Contact Us">CONTACT</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div> 
+        <section class="landing text" style="background-image: url('{{Im_url}}')">
+            <h1>{{monument.Name}}</h1> 
+            <a href="#target">Read More</a>
+        </section>
+        <section class="cards" id="readmore">
+            <div class="card">
+                <h2>Location</h2>
+                <p>{{monument.Country}},{{monument.State}}</p>
+            </div>
+            <div class="card">
+                <h2>Year Built</h2>
+                <p>{{monument.Constr_Year}}</p>
+            </div>
+            <div class="card">
+                <h2>Architectural Style</h2>
+                <p>{{monument.Arch_style}}</p>
+            </div>
+            <div class="card">
+                <h2>Construction Materials</h2>
+                <p>
+                    {%for mat in monument.Constr_Mat.all%}
+                    |{{mat}}|
+                    {% endfor %}
+                </p>
+            </div>
+        </section>
+        <section class="parent" id="target">
+            <div class="overview revealUp">
+                <h2>Overview</h2>
+                <p> {{monument.Description}}</p>
+            </div>
+            <div class="interest revealUp">
+            <h2>Did You Know?</h2>
+                <p>{{monument.Fact}}
+                </p>
+            </div>
+        </section>
+        <section class="map-section">
+                <div class="street-view">
+                   <a href="{{ monument.view_360deg }}">
+                    Street View
+                   </a>
+                </div>
+                <div class="map-container">
+                    <a href="{{link}}">
+                    <img src="{% static 'gmapimg.jpg' %}" width="400" height="300">
+                </div>  
+        </section>
+        
+        <footer>
+            <div class="footer-content">
+                <p>Copyright © 2024 PowerNappers. All rights reserved.</p>
+            </div>
+          </footer>
+
+    </body>
+</html>
